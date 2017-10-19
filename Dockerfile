@@ -47,4 +47,9 @@ RUN set -x \
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
 
-RUN git clone https://github.com/simonpercic/ResponseEcho.git
+RUN git clone https://github.com/simonpercic/ResponseEcho.git /ResponseEcho
+
+ADD start.sh /start.sh
+RUN chmod +x /start.sh
+
+ENTRYPOINT ["/start.sh"]
